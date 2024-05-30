@@ -1,0 +1,13 @@
+
+bonjour chaine
+chaine
+combien de lignes commencent par la lettre "a" : chaine
+exemple : combien de lignes (sans doublons) comporte un fichier :
+# fichier original
+# retourne le nombre de fois ou est écrit toto
+# sort < texte.txt> fichier_trie 
+# sort texte.txt | grep toto | wc -l
+sort -u fichier.txt | wc -l
+# trie le texte et crée un nouveau fichier fichier trie avec le texte trié
+wc
+wc est une commande extrêmement utile qui compte le nombre de caractères, de mots ou de lignes d'un texte.

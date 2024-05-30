@@ -1,0 +1,3 @@
+ retourne le nombre de fois ou est écrit toto
+sort texte.txt | grep toto | wc -l
+toto

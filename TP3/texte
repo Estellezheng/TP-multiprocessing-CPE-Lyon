@@ -1,0 +1,16 @@
+aa
+fichier original
+sort < texte.txt> fichier_trie 
+ trie le texte et crée un nouveau fichier fichier trie avec le texte trié
+sort texte.txt | grep toto | wc -l
+ retourne le nombre de fois ou est écrit toto
+
+wc
+wc est une commande extrêmement utile qui compte le nombre de caractères, de mots ou de lignes d'un texte.
+exemple : combien de lignes (sans doublons) comporte un fichier :
+sort -u fichier.txt | wc -l
+combien de lignes commencent par la lettre "a" : chaine
+chaine
+bonjour chaine
+chaine chaine
+toto
