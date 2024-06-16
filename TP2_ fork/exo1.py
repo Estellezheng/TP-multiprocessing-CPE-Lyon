@@ -13,9 +13,8 @@ def process2 ():
     print("programme 2 : id = ", os.getpid())
     os.execlp("python3", "python3", "exo1bisbis.py")
 
-if __name__ == "__main__":
-    pid1 = os.fork()
-    if pid1 == 0:
+if __name__ == "__main__" :
+    if os.fork() == 0:
         process1()
     else: 
         process2()

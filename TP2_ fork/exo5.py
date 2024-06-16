@@ -13,6 +13,7 @@ Chacun des processus fils Pi réalise le traitement suivant :
  Il se termine par sys.exit(i)
  """
 
+
 # # python3 exo5.py 3
 
 N = sys.argv[1]
@@ -22,8 +23,9 @@ for i in range (N) :
     if (pid == 0) : 
         print(" je suis le processus fils :" ,os.getpid(),", mon pere est : ",os.getppid())
         time.sleep(2*i)
-        sys.exit(i)
+        os.exit(i)
         
 for i in range (N) :
     pid, status = os.wait()
-    print("Mon fils", pid, "m'a reveillé et son état est", status)
+    etat = os.WEXITSTATUS(status)
+    print("Mon fils", pid, "m'a reveillé et son état est", etat)
