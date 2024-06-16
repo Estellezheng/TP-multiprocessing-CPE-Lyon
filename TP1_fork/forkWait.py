@@ -12,14 +12,24 @@ import os, sys, time
 
 # Création des N processus
 def creation_process(N):
-    for i in range (1, N+1) :
+    fils = []
+    for i in range(1, N + 1):
         pid = os.fork()
-        # processid = 0 represents the created child process
-        if pid == 0 :
-            print("\nJe suis le processus", os.getpid(),"mon père est le processus", os.getppid())
-            time.sleep(2*i)
-            exit(i)
-        
-if __name__ == "__main__" :
+        if pid == 0:
+            print("\nJe suis le processus", os.getpid(),
+                  "mon père est le processus", os.getppid())
+            os._exit(i)
+        else:
+            fils.append(pid)
+
+    for pid in fils:
+        pid, status = os.waitpid(pid, 0)
+        exit_status = os.WEXITSTATUS(status)
+        print(
+            f"Processus fils {pid} terminé avec la valeur {exit_status}"
+        )
+
+
+if __name__ == "__main__":
     N = 8
     creation_process(N)

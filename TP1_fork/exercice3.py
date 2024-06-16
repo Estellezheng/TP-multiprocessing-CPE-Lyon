@@ -2,7 +2,6 @@ import os,sys
 
 # EXO 3
 
-
 N = 4
 v=1
 while os.fork()==0 and v<=N :   # os.fork() = 0 represents the created child process 
@@ -13,13 +12,16 @@ sys.exit(0)
 # N = 10 : affiche 1 2 .... 10 11 11
 # N = 4 : affiche 1 2 3 4 5 5
 
+# EXPLICATION
+# 
+
+
 print("debut")
 for i in range(4) :
     pid = os.fork()
     if pid != 0 :      # le père print ok 
         print("Ok !")
     print("Bonjour !")      # le père et le fils print bonjour
-    print('fin')
 sys.exit(0)
 
 
