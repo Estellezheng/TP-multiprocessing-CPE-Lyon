@@ -59,7 +59,8 @@ réaliser la somme de ces nombres et de déposer le résultat dans le tube somme
  """
 
 # Version 1 : Un script Python composé de 3 processus réalisant les traitements demandés en utilisant les
-# tubes anonymes.
+
+# tubes ANONYMES.
 
 N = 10
 (dfr1, dfw1) =os.pipe()  #impair

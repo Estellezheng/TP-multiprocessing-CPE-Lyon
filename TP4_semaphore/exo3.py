@@ -19,18 +19,18 @@ def producteur1 (N) :
     for i in range (N):
         val = random.randint(0,9)    
         Q1.put(val)
-        print("1", val)
+        print(f"producteur 1 : {val}")
 
 def producteur2 (N) : 
     for i in range (N):
         val = random.randint(0,9)    
         Q2.put(val)
-        print("2", val)
+        print(f"producteur 2 : {val}")
 
 def consommateur1(N) : 
     for i in range (N):  
         val = Q1.get()
-        print("q1", val)
+        print("consommateur 1", val)
         time.sleep(1)
 
         rdv_c1.release() 
@@ -41,13 +41,10 @@ def consommateur2(N) :
     for i in range (N):  
         rdv_c2.release()
         val = Q2.get()
-        print("q2", val)
+        print("consommateur 2", val)
         time.sleep(2)
         rdv_c1.acquire()
         
-        
-
-
 
 if __name__ == "__main__" : 
 

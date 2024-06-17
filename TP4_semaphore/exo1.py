@@ -35,7 +35,7 @@ def process2(N, liste) :        # somme paire
 if __name__ == "__main__" : 
 
     liste = [1,2,3,4,5,6,7]
-    N = len(liste)
+    N = len(liste) 
 
     sem = mp.Semaphore(1)  # creation semaphore initilalisé à 1
     somme = mp.Value('i',0) # variable partagée

@@ -4,18 +4,18 @@ import os, sys, time
 
 msg = "monMessage"
 msg = msg.encode()   # encode  str to byter
-print("Création d'un pipe anonyme")
 
 # creation
-(dfr, dfw) = os.pipe()
+(dfr, dfw) = os.pipe()      # out, in
+print("Création d'un pipe anonyme")
 
 # ecriture
-n = os.write(dfw, msg)
-print("Le processus %d a transmis le message %s \n" %(os.getpid(), msg))
+os.write(dfw, msg)
+print(f"Le processus {os.getpid()} a transmis le message {msg}")
 
 # lecture
 msgRecu = os.read(dfr, len(msg))
-print("Le processus %d a recu le message %s \n" %(os.getpid(), msgRecu))
+print(f"Le processus {os.getpid()} a recu le message {msgRecu}")
 
 # fermeture
 os.close(dfr)

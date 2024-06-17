@@ -5,13 +5,19 @@ import sys
 import time
  
 
-"""Ecrire un programme composé de 2 processus : Le père fait des affichages toutes les
-secondes dans une boucle for et le fils fait des affichages toutes les secondes aussi mais dans une boucle
-infinie. Quand le compteur de boucle du père arrive à 3, le père envoie un signal SIGKILL au fils. On a
-constaté dans l'exercice 2, l'impossibilité d'ignorer ce signa"""
+"""Recopier le script précédent et le modifier pour que le père n'envoie plus ce signal au fils 
+mais que le fils intercepte tous les SIGINT en affichant un message d'interception. 
+Exécutez alors le programme et interrompez le par un ^C : Que constatez-vous? Expliquez pourquoi. 
+(Pour vous aider, utilisez la commande ps –l"""
+
+
+def interception(signal, frame) :
+    print("interception du signal")
+    sys.exit(0)
 
 def child_process():
     """Processus fils qui affiche un message dans une boucle infinie."""
+    signal.signal(signal.SIGINT, interception)
     while True:
         print("Fils: En cours...")
         time.sleep(1)
@@ -22,8 +28,6 @@ def parent_process(child_pid):
         print(f"Père: Compteur = {i}")
         time.sleep(1)
 
-    print("Père: Envoi de SIGKILL au fils")
-    os.kill(child_pid, signal.SIGKILL)
 
 if __name__ == "__main__":
 

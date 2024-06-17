@@ -15,6 +15,6 @@ for i in range(N) :
     #__________début des ajouts_________
 
     # __________fin des ajouts__________
-compt +=1
-print(f"{compt} : Bonjour")
+
+print(" Bonjour")
 sys.exit(0)

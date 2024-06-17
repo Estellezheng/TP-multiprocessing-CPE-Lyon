@@ -19,9 +19,7 @@ def ignore (signal, frame) :
 
     
 signal.signal(signal.SIGINT, ignore)
-print(fin)
 
-if (os.fork !=0) :
-    while fin == False:
-        print ("Je boucle")
-        time.sleep(1)
+while fin == False:
+    print ("Je boucle")
+    time.sleep(1)

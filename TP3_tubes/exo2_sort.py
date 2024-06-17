@@ -7,7 +7,6 @@ import os, sys, time
 entree = 'texte'
 sortie = 'sortie'
 
-
 (dfr1, dfw1) =os.pipe()
 (dfr2, dfw2) =os.pipe()
 

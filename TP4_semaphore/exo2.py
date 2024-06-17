@@ -12,14 +12,14 @@ appartiennent à deux processus P1 et P2 différents qui doivent
 l’exécution de la tâche T2 jusqu’à ce que le premier
 processus P1 termine la tâche T1"""
 
-def process1(N) :      
+def process1(sem) :      
     print("P1; tache 1")
     print("P1; tache 2")
     time.sleep(2)
     sem.release()
     
 
-def process2(N) :       
+def process2(sem) :       
     sem.acquire()
     print("P2; tache 1")
     print("P2; tache 2")
