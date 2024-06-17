@@ -13,30 +13,28 @@ rdv2() pour l’autre. En utilisant les sémaphores, écrire les scripts P1 et P
 # Exemple 2 Process
 
 def processusP1(sem1):
-       sem1.acquire()
-       print("Je suis P1")
+       print("P1 en attente du rendez-vous...")
+       sem1.acquire()   # attente et commence
        time.sleep(1)
-       sem2.release()
-       sem1.acquire()
        rdv1()
    
+  
 def processusP2(sem2):
-       sem2.acquire()
-       print("Je suis P2")
-       time.sleep(1)
-       sem1.release()
-       sem1.release()
-       sem1.acquire()
-       rdv2()
+    print("P2 en attente du rendez-vous...")
+    sem2.acquire()   # en attente
+    time.sleep(1)
+    rdv2()
        
 def rdv1():
-   print("rdv1")
+   print("je suis au rdv1")
    
 def rdv2():
-   print("rdv2")
+   print("je suis au rdv2")
        
-sem1=mp.Semaphore(1)  
+sem1=mp.Semaphore(0)  
 sem2=mp.Semaphore(0) 
+sem1.release()
+sem2.release()
 
 P1=mp.Process(target=processusP1, args=(sem1,))
 P2=mp.Process(target=processusP2, args=(sem2,))

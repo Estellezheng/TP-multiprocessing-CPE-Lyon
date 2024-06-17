@@ -13,14 +13,14 @@ l’exécution de la tâche T2 jusqu’à ce que le premier
 processus P1 termine la tâche T1"""
 
 def process1(sem) :      
-    print("P1; tache 1")
+    print("P1; tache 1")    #effectue sa tache
     print("P1; tache 2")
     time.sleep(2)
-    sem.release()
+    sem.release()   # relache et incrémente pour que 2 puisse travailler
     
 
 def process2(sem) :       
-    sem.acquire()
+    sem.acquire()   # decremente
     print("P2; tache 1")
     print("P2; tache 2")
 
